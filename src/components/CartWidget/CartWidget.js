@@ -1,16 +1,14 @@
 
-import { mdiCartMinus } from '@mdi/js'
-import './CardWidget.css'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CartWidget = () => {
-   
-    return (
-        <div className='cart-button'>
-           
-                
-            
+const CartWidget = () =>  {
+    return(
+        <div className='cart-container-icon'>
+            <ShoppingCartIcon color={'primary'}/>
         </div>
     )
 }
 
 export default CartWidget
+
+
