@@ -2,7 +2,8 @@ import './ItemCount.css'
 import {useState} from 'react'
 
 const ItemCount = () => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
+   // const [stock, setStock] = useState(3)
     
     const addCount = () => {
         setCount(count + 1);
@@ -10,13 +11,20 @@ const ItemCount = () => {
     const lessCount = () => {
             setCount(count - 1)
     }
+    const onAdd = () => {
+        console.log(count)
+    }
     return(
-        
-        <div>
-        <button onClick={addCount}>+</button>
-        <p>{count}</p>
-        <button onClick={lessCount} disabled={count == 0}>-</button>
-        </div>
+
+        <>
+            <button onClick={addCount} disabled={count == 3}>+</button>
+            <p>{count}</p>
+            <button onClick={lessCount} disabled={count == 0}>-</button>
+                
+        </>
+               
+          
+       
         
     )
 }

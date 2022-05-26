@@ -9,7 +9,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 const CardItem = ({ image, title, precio }) => {
     
-    const [open, setOpen] = useState(false)
+   
 
 
     return (
@@ -19,12 +19,13 @@ const CardItem = ({ image, title, precio }) => {
            <img src = {`./autos/${image} `} />
            <p>{title} </p>
         <span>$ {precio} </span>
-        <div className = 'count-item'> 
+        <div className="count-item">
          <ItemCount/>
          </div>
          <button variant='outlined'>Detalle </button>
+         <buttom variant='outlined'>Comprar </buttom> 
+         </div>
         
-           </div>
         </CardContent>
       
         </Card>
