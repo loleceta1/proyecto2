@@ -7,7 +7,7 @@ import ItemCount from '../ItemCount/ItemCount'
 
 
 
-const CardItem = ({ image, title, precio }) => {
+const CardItem = ({ image, title, precio, stock }) => {
     
    
 
