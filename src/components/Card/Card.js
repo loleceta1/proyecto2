@@ -7,24 +7,35 @@ import ItemCount from '../ItemCount/ItemCount'
 
 
 
-const CardItem = ({ image, title, precio, stock }) => {
+const CardItem = ({ image, title, price, stock }) => {
     
    
 
 
     return (
-        <Card sx={{ minWidth: 275 }}>
+        <Card sx={{ minWidth: 275 }} className="card-item-container">
         <CardContent> 
-        <div className="card-item">
-           <img src = {`./autos/${image} `} />
-           <p>{title} </p>
-        <span>$ {precio} </span>
-        <div className="count-item">
-         <ItemCount/>
-         </div>
-         <button variant='outlined'>Detalle </button>
-         <buttom variant='outlined'>Comprar </buttom> 
-         </div>
+            <div className="card-item">
+                 <div className="card-item_img-box">
+                     <img src = {`./autos/${image} `} />
+                </div>
+            </div>
+        
+            <div className='card-item_data-box'>
+                <div className = 'card-info-data'>
+                    <p>{title} </p>
+                    <span>$ {price} </span>
+        
+                </div>
+                <Button variant={'outlined'} className="card-btn-details">Detalle </Button>
+
+            <div className="count-item">
+                <ItemCount/>
+         
+            </div>
+
+            <Button variant={'contained'} className="card-item-button">Agregar al carrito</Button>
+        </div>
         
         </CardContent>
       

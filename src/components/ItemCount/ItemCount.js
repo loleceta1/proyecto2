@@ -1,14 +1,16 @@
+
 import './ItemCount.css'
 import {useState} from 'react'
+import CardList from '../CardList/CardList';
 
-const ItemCount = () => {
+const ItemCount = ({stock}) => {
     const [count, setCount] = useState(1);
-    const [stock, setStock] = useState(3)
     
     const addCount = () => {
-        if(count < stock )
+        if(count < stock ){ 
         setCount(count + 1);
     }
+}
     const lessCount = () => {
             setCount(count - 1)
     }
@@ -17,12 +19,12 @@ const ItemCount = () => {
     }
     return(
 
-        <>
-            <button onClick={addCount} disabled={count == 3}>+</button>
-            <p>{count}</p>
-            <button onClick={lessCount} disabled={count == 3}>-</button>
-                
-        </>
+        <div className= 'itemcount-button'>
+        <button onClick={addCount}>+</button>
+        <p>{count}</p>
+        <button onClick={lessCount} disabled={count == 0 }>-</button>
+            
+        </div>
                
           
        
