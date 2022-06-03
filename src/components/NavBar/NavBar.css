@@ -1,4 +1,4 @@
-.NavBar {
+/*.NavBar {
     float: left;
     width: 100%;
     border-bottom: 1px solid #ccc;
@@ -11,29 +11,85 @@
 .container-logo img{
     width: 100%;
 }
+.container-logo h6{
+    margin-top: 80px;
+    color: blue;
+}
+.cart-Widget{
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    color: black;
+    margin-left: 100px;
+    margin-top: 80px;
 
+}
+ul{
+    margin-right: 200px;
+}
 
 li {
     float: right;
     background-color: transparent;
     list-style: none;
     margin-top: 10px;
-    margin-left: 14px;
+    margin-left: 16px;
     margin-right: 10px;
 }
 li a {
     color: black;
     text-decoration: none;
     background: transparent;
-    font-size: 20px;
+    font-size: 14px;
     margin-left: 14px;
 	
 }
 li a:hover {
     color:blue;
-}
+}*/
 
 
 .header-primary {
     background-color:transparent !important;
 }
+
+.logo {
+    width: 150px;
+  }
+  .logo img {
+    width: 100%;
+  }
+  .header .navigator li {
+    margin-right: 50px;
+    list-style: none;
+  }
+  
+  .navigator {
+    background-color: transparent !important;
+    float: left;
+    width: 100%;
+    display: flex;
+  }
+  .navigator-bar{
+      background-color:transparent !important;
+  }
+  
+  .header .navigator .navigator__link {
+    font-family: "Raleway";
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 15px;
+    color: #fff;
+  }
+  
+  .navigator__link {
+    font-weight: 200;
+    font-size: 16px;
+  }
+  
+  .navigator__link:hover {
+    border-bottom: 1px solid blue;
+    border-radius: 0%;
+  }
+ 
+ 

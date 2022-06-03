@@ -4,12 +4,13 @@ import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import {useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount'
+import {Link} from 'react-router-dom'
 
 
 
-const CardItem = ({ image, title, price, stock }) => {
+const CardItem = ({ image, title, price, stock, id}) => {
     
-   
+ 
 
 
     return (
@@ -17,7 +18,7 @@ const CardItem = ({ image, title, price, stock }) => {
         <CardContent> 
             <div className="card-item">
                  <div className="card-item_img-box">
-                     <img src = {`./autos/${image} `} />
+                     <img src = {`/autos/${image} `} />
                 </div>
             </div>
         
@@ -27,14 +28,16 @@ const CardItem = ({ image, title, price, stock }) => {
                     <span>$ {price} </span>
         
                 </div>
-                <Button variant={'outlined'} className="card-btn-details">Detalle </Button>
+                <Button variant={'outlined'} className="card-btn-details">
+                    <Link to={`/product/${id}`} >Detalle </Link>
+                </Button>
 
             <div className="count-item">
-                <ItemCount/>
+                <ItemCount stock={stock}  />
          
             </div>
 
-            <Button variant={'contained'} className="card-item-button">Agregar al carrito</Button>
+           
         </div>
         
         </CardContent>

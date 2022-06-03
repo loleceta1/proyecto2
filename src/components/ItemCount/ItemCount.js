@@ -1,4 +1,4 @@
-
+import { Button } from '@mui/material';
 import './ItemCount.css'
 import {useState} from 'react'
 import CardList from '../CardList/CardList';
@@ -18,16 +18,15 @@ const ItemCount = ({stock}) => {
         console.log(count)
     }
     return(
-
+        <>
         <div className= 'itemcount-button'>
         <button onClick={addCount}>+</button>
         <p>{count}</p>
         <button onClick={lessCount} disabled={count == 0 }>-</button>
-            
-        </div>
-               
-          
-       
+        </div>  
+        <Button variant={'contained'} onClick={() => onAdd (count)} className="card-item-button">Agregar al carrito</Button>
+      
+        </>
         
     )
 }

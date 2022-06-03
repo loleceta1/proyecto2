@@ -15,7 +15,13 @@ const CardList= ({title, products}) => {
                 return(
                      
                     <Grid item md={4} key={id}> 
-                    <CardItem title={title}  price ={price} image={image} stock={stock} />
+                        <CardItem
+                            title={title}
+                            price ={price} 
+                            image={image} 
+                            stock={stock} 
+                            id={id} 
+                        />
                     </Grid>
                    
                 )

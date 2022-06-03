@@ -1,13 +1,8 @@
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-const CartWidget = () =>  {
-    return(
-        <div className='cart-container-icon'>
-            <ShoppingCartIcon color={'primary'}/>
-        </div>
-    )
-}
+const CartWidget = () => {
+  return <ShoppingCartIcon fontSize="large" />;
+};
 
-export default CartWidget
-
+export default CartWidget;

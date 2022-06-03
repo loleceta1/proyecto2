@@ -1,11 +1,12 @@
   
-const productos = [
+export const productos = [
 
     {
         id: 1,
         title:'Mercedes', 
         price: 32000,
         image:'auto2.jpg',
+        category:'destacado',
         description: '',
         stock: 3
 
@@ -15,6 +16,7 @@ const productos = [
         title:'Mercedes', 
         price: 35000,
         image:'auto1.jpg',
+        category:'nuevo',
         description: '',
         stock: 4
 
@@ -24,6 +26,7 @@ const productos = [
         title:'Mustang', 
         price: 40000,
         image:'auto3.jpg',
+        category:'destacado',
         description: '',
         stock: 5
 
@@ -33,6 +36,7 @@ const productos = [
         title:'Mustang', 
         price: 42000,
         image:'auto4.jpg',
+        category:'nuevo',
         description: '',
         stock: 6
 
@@ -42,6 +46,7 @@ const productos = [
         title:'Ferrari', 
         price: 55000,
         image:'auto5.jpg',
+        category:'destacado',
         description: '',
         stock: 2
 
@@ -51,6 +56,7 @@ const productos = [
         title:'BMW', 
         price: 45000,
         image:'auto6.jpg',
+        category:'nuevo',
         description: '',
         stock: 4
 
@@ -58,7 +64,7 @@ const productos = [
 ]
 
 
-const producto = [
+/*const producto = [
 
     {
         id: 1,
@@ -69,7 +75,7 @@ const producto = [
         stock: 3
 
     }
- ]
+ ]*/
 
  export default productos
- export {producto}
+// export {producto}
