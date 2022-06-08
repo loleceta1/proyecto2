@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import {useState} from 'react';
-import ItemCount from '../ItemCount/ItemCount'
+
 import {Link} from 'react-router-dom'
 
 
@@ -32,10 +32,7 @@ const CardItem = ({ image, title, price, stock, id}) => {
                     <Link to={`/product/${id}`} >Detalle </Link>
                 </Button>
 
-            <div className="count-item">
-                <ItemCount stock={stock}  />
-         
-            </div>
+          
 
            
         </div>

@@ -3,31 +3,37 @@ import './ItemCount.css'
 import {useState} from 'react'
 import CardList from '../CardList/CardList';
 
-const ItemCount = ({stock}) => {
-    const [count, setCount] = useState(1);
+const ItemCount = ( {stock, cantidad, actCantidad, setShowButton}) => {
+  
     
     const addCount = () => {
-        if(count < stock ){ 
-        setCount(count + 1);
+        if(cantidad < stock ){ 
+       
+        actCantidad(cantidad + 1);
+        }
     }
-}
     const lessCount = () => {
-            setCount(count - 1)
+            setCount(cantidad - 1)
     }
     const onAdd = () => {
-        console.log(count)
+        console.log(cantidad)
     }
     return(
         <>
         <div className= 'itemcount-button'>
         <button onClick={addCount}>+</button>
-        <p>{count}</p>
-        <button onClick={lessCount} disabled={count == 0 }>-</button>
+        <p style={{margin: '0 10px', marginTop: '0 10px'}}>{cantidad}</p>
+        <button onClick={lessCount} disabled={cantidad == 0 }>-</button>
+        
         </div>  
-        <Button variant={'contained'} onClick={() => onAdd (count)} className="card-item-button">Agregar al carrito</Button>
+
+        <Button className='detail__btn-buy' onClick = {() => setShowButton(true)}>Seleccionar</Button>
+       
       
         </>
         
     )
 }
 export default ItemCount;
+
+// <Button variant={'contained'} onClick={() => onAdd (count)} className="card-item-button">Agregar al carrito</Button>
