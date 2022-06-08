@@ -20,6 +20,7 @@ const ItemCount = ( {stock, cantidad, actCantidad, setShowButton}) => {
     }
     return(
         <>
+        <label> Selecciona Cantidad </label>
         <div className= 'itemcount-button'>
         <button onClick={addCount}>+</button>
         <p style={{margin: '0 10px', marginTop: '0 10px'}}>{cantidad}</p>

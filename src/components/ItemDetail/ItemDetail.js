@@ -26,11 +26,12 @@ const ItemDetail = ({data}) => {
                 <p></p>
                 <p className='info__text'>{data.talle}</p>
                 <div className="count-item"   style={{marginTop: ' 10px'}}> 
-                <label> Selecciona Cantidad </label>
+               
                
 
                 {!showButton ?
                  <ItemCount 
+                
                     cantidad={cantidad}
                     actCantidad={setCantidad} 
                     stock={data.stock} 
