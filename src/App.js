@@ -7,6 +7,7 @@ import Contacto from './pages/Contacto';
 import NotFound from './pages/NotFound';
 import Detalle from './pages/Detalle';
 import ProductList from './pages/ProductList';
+import { CartProvider } from './context/CartContext';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
     <div className="App">
+    <CartProvider>
       <BrowserRouter> 
         <NavBar />
         <Routes> 
@@ -25,7 +27,7 @@ function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-      
+      </CartProvider>   
         
      
      

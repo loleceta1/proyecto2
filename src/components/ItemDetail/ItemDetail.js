@@ -4,10 +4,13 @@ import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
+//import { CartContext } from '../../context/CartContext';
+
 
 const ItemDetail = ({data}) => {
     const [cantidad, setCantidad] = useState(1)
     const [showButton, setShowButton] = useState(false)
+   // const {} = useContext(CartContext)
 
     const addProductToCart = () => {
         console.log("producto a agregar: ", data)
@@ -39,7 +42,7 @@ const ItemDetail = ({data}) => {
                    
                  />
                 :
-                <Button variant='outlined'><Link to='/cart'> Compra Seleccionada </Link> </Button>}
+                <Button variant='outlined'><Link to='/cart'> Agregar Selección </Link> </Button>}
                
                 
                 </div>

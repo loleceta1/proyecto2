@@ -9,6 +9,8 @@ import CartWidget from "../CartWidget/CartWidget";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
+
+
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -104,6 +106,7 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
+          
             <CartWidget />
           </Toolbar>
         </AppBar>
