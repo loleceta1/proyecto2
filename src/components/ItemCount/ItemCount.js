@@ -13,7 +13,7 @@ const ItemCount = ( {stock, cantidad, actCantidad, setShowButton}) => {
         }
     }
     const lessCount = () => {
-            setCount(cantidad - 1)
+            actCantidad(cantidad - 1)
     }
     const onAdd = () => {
         console.log(cantidad)

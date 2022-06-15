@@ -29,7 +29,7 @@ const NavBar = () => {
         <AppBar
           className="header"
           position="static"
-          style={{ backgroundColor: "#5e5e5e" }}
+          style={{ backgroundColor: "transparent" }}
         >
           <Toolbar>
             <Link to="/">

@@ -3,14 +3,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Button } from '@mui/material';
 import {useState} from 'react';
-
 import {Link} from 'react-router-dom'
+
 
 
 
 const CardItem = ({ image, title, price, stock, id}) => {
     
- 
+   
 
 
     return (

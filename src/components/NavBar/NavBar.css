@@ -49,9 +49,6 @@ li a:hover {
 }*/
 
 
-.header-primary {
-    background-color:transparent !important;
-}
 
 .logo {
     width: 150px;
@@ -62,6 +59,7 @@ li a:hover {
   .header .navigator li {
     margin-right: 50px;
     list-style: none;
+    text-decoration: none !important;
   }
   
   .navigator {
@@ -79,7 +77,7 @@ li a:hover {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 15px;
-    color: #fff;
+    color:black;
   }
   
   .navigator__link {

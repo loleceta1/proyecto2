@@ -1,21 +1,17 @@
 import './ItemDetail.css'
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
-//import { CartContext } from '../../context/CartContext';
+import CartContext from '../../context/CartContext'
 
 
 const ItemDetail = ({data}) => {
     const [cantidad, setCantidad] = useState(1)
     const [showButton, setShowButton] = useState(false)
-   // const {} = useContext(CartContext)
+   const {addProductToCart}= useContext(CartContext)
 
-    const addProductToCart = () => {
-        console.log("producto a agregar: ", data)
-        console.log("cantidad: ", cantidad)
-    }
     return(
         <Container className='container-general'> 
             <div className='container-detail'>
@@ -42,8 +38,10 @@ const ItemDetail = ({data}) => {
                    
                  />
                 :
-                <Button variant='outlined'><Link to='/cart'> Agregar Selección </Link> </Button>}
-               
+                
+                <Button variant={'outlined'} onClick= {() => addProductToCart(data)}>
+                 Agregar Selección 
+                </Button>}
                 
                 </div>
                
