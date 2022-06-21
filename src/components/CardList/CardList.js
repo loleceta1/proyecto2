@@ -1,8 +1,33 @@
 import CardItem from '../Card/Card';
 import {useState, useEffect} from 'react'
 import { Grid } from '@mui/material'
+//firestore
+import { collection, getDocs } from "firebase/firestore";
+import db from '../../utils/firebaseConfig';
 
-const CardList= ({title, products}) => {
+
+const CardList= ({title}) => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() =>{
+        getProducts()
+        .then( (productos) => {
+            //  console.log("productos: ", productos)
+         setProducts(productos)
+        })
+      
+    })
+    
+    const getProducts = async () => {
+        const productSnapshot = await getDocs(collection(db, "productos"));
+        //console.log (productSnapshot)
+        const productList = productSnapshot.docs.map((doc) =>{
+            let product = doc.data()
+            product.id = doc.id
+            return product
+        })
+        return productList
+    }
    
 
     return (
@@ -32,5 +57,6 @@ const CardList= ({title, products}) => {
         </Grid>
         </>
     )
+    
 }
 export default CardList;

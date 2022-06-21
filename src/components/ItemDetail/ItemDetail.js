@@ -10,7 +10,7 @@ import CartContext from '../../context/CartContext'
 const ItemDetail = ({data}) => {
     const [cantidad, setCantidad] = useState(1)
     const [showButton, setShowButton] = useState(false)
-   const {addProductToCart}= useContext(CartContext)
+    const {addProductToCart}= useContext(CartContext)
 
     return(
         <Container className='container-general'> 
