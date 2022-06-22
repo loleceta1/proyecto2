@@ -16,7 +16,7 @@ const CardList= ({title}) => {
          setProducts(productos)
         })
       
-    })
+    }, [])
     
     const getProducts = async () => {
         const productSnapshot = await getDocs(collection(db, "productos"));
