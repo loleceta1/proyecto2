@@ -2,6 +2,7 @@ import CardList from '../components/CardList/CardList'
 import { useEffect, useState } from 'react'
 import productos from '../utils/productsMock'
 import { useParams } from 'react-router-dom'
+import db from '../utils/firebaseConfig'
 
 const ProductList = () => {
     const [products, setProducts] = useState([])

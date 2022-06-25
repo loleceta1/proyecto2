@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import Detalle from './pages/Detalle';
 import ProductList from './pages/ProductList';
 import { CartProvider } from './context/CartContext';
+import Cart from './pages/Cart';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <NavBar />
         <Routes> 
           <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='/contact' element={<Contacto />} />
           <Route path='/product/:id' element={<Detalle />} />
           <Route path='/products/:category' element={<ProductList />} />

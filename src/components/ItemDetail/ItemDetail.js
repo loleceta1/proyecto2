@@ -23,7 +23,7 @@ const ItemDetail = ({data}) => {
                 <p className='info__text'>$ {data.price}</p>
                 <p className='info__subtitle'>Información del Vehículo</p>
                 <p></p>
-                <p className='info__text'>{data.talle}</p>
+                <p className='info__text'>{}</p>
                 <div className="count-item"   style={{marginTop: ' 10px'}}> 
                
                

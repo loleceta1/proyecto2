@@ -51,7 +51,7 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <Link style={{ textDecoration: "none" }} to="/Productos">
+                <Link style={{ textDecoration: "none"}} to="/Productos">
                   <Button
                     disableRipple
                     variant="text"

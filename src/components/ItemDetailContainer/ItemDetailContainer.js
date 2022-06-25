@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
     }
 
  //Funcion qu eme devuelve el objeto que match con el useParam
-   // const productFilter = productos.find( (product) => {
+    //const productFilter = productos.find( (product) => {
             
         //return product.id == id
         
