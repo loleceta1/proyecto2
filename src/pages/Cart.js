@@ -18,28 +18,34 @@ const Cart = () => {
     })
     const [order, setOrder] = useState({
         buyer: {},
-        items: cartListItems.map( item => {
+        items: cartListItems.map((item) => {
             return {
                 id: item.id,
                 title: item.title,
-                price: item.price,
+                price: item.price
             }
         } ),
         total: totalPrice
+       
     })
+
+  
     const [success, setSuccess] = useState()
     const navigate = useNavigate()
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        //console.log("prevent submit: ", formValue)
+
         setOrder({...order, buyer: formValue})
         saveData({...order, buyer: formValue})
     }
 
     //DRY = Dont Repeat Yourself
     const handleChange = (e) => {
-        setFormValue({...formValue, [e.target.name]: e.target.value})
+        //console.log("valor del input", e.target.value)
+       setFormValue({...formValue, [e.target.name]: e.target.value})
     }
 
     const finishOrder = () => {
@@ -47,18 +53,22 @@ const Cart = () => {
     }
 
     const saveData = async (newOrder) => {
-        const orderFirebase = collection(db, "ordenes")
-        const orderDoc = await addDoc (orderFirebase, newOrder)
+        const orderFirebase = collection(db, 'ordenes')
+        const orderDoc = addDoc (orderFirebase, newOrder)
+       
         
-        console.log("orden generada: ", orderDoc.id)
+        //console.log("orden generada: ", orderDoc)
         setSuccess(orderDoc.id)
         cleanCartProducts()
     }
 
+   
+
     return(
         <Container className='container-general'> 
+        {console.log("orden: ", order)}
         <h2>Checkout: </h2>
-        <div className='cart-section'>
+               <div className='cart-section'>
             <div className='col-cart-table__head'>
                 <h2>Producto</h2>
                 <h2>Descripcion</h2>

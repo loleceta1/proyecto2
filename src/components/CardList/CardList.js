@@ -20,10 +20,11 @@ const CardList= ({title}) => {
     
     const getProducts = async () => {
         const productSnapshot = await getDocs(collection(db, "productos"));
-        //console.log (productSnapshot)
+        console.log (productSnapshot)
         const productList = productSnapshot.docs.map((doc) =>{
             let product = doc.data()
             product.id = doc.id
+            console.log ("cardlist: ", product)
             return product
         })
         return productList

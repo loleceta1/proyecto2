@@ -3,7 +3,7 @@ import { useEffect, useState} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import  productos  from '../../utils/productsMock'
 import {useParams} from "react-router-dom"
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDocs } from "firebase/firestore";
 import db from '../../utils/firebaseConfig'
 
 
@@ -22,11 +22,11 @@ const ItemDetailContainer = () => {
 
     const getProduct = async () => {
         const docRef = doc (db, "productos", id)
-        const docSnapshot = await getDoc(docRef)
+        const docSnapshot = await getDocs(docRef)
         let product = docSnapshot.data()
         producto.id = docSnapshot.id
         return product
-        //console.log("docSnapshot: ", docSnapshot.data())
+        console.log("itemDatailContainer: ", docSnapshot.data())
     }
 
  //Funcion qu eme devuelve el objeto que match con el useParam
@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
             
         //return product.id == id
         
-   // })
+   // })*/
 
 
     return(
