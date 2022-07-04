@@ -3,7 +3,7 @@ import { useEffect, useState} from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import  productos  from '../../utils/productsMock'
 import {useParams} from "react-router-dom"
-import { doc, getDocs } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import db from '../../utils/firebaseConfig'
 
 
@@ -22,13 +22,17 @@ const ItemDetailContainer = () => {
 
     const getProduct = async () => {
         const docRef = doc (db, "productos", id)
-        const docSnapshot = await getDocs(docRef)
+        const docSnapshot = await getDoc(docRef)
+        console.log("itemDetailContainer", docSnapshot)
+       
         let product = docSnapshot.data()
-        producto.id = docSnapshot.id
+        product.id = docSnapshot.id
         return product
         console.log("itemDatailContainer: ", docSnapshot.data())
+    
+ 
     }
-
+ 
  //Funcion qu eme devuelve el objeto que match con el useParam
     //const productFilter = productos.find( (product) => {
             

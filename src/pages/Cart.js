@@ -57,7 +57,7 @@ const Cart = () => {
         const orderDoc = addDoc (orderFirebase, newOrder)
        
         
-        //console.log("orden generada: ", orderDoc)
+        console.log("orden generada: ", orderDoc)
         setSuccess(orderDoc.id)
         cleanCartProducts()
     }

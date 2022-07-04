@@ -19,7 +19,8 @@ const CardList= ({title}) => {
     }, [])
     
     const getProducts = async () => {
-        const productSnapshot = await getDocs(collection(db, "productos"));
+        const productCollection = collection(db, "productos")
+        const productSnapshot = await getDocs(productCollection);
         console.log (productSnapshot)
         const productList = productSnapshot.docs.map((doc) =>{
             let product = doc.data()
