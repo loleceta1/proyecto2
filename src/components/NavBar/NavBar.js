@@ -21,7 +21,7 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
-  const categories = ['nuevo', 'destacado'];
+  const categories = ["nuevo", "destacado"];
 
   return (
     <Box sx={{ flexGrow: 1 }}>

@@ -160,6 +160,15 @@ const Cart = () => {
             )}
             
         </Modal>
+        <br>
+        
+        
+        
+        
+        
+        
+        
+        </br>
     </Container>
     )
 }

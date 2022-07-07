@@ -7,6 +7,7 @@ import Contacto from './pages/Contacto';
 import NotFound from './pages/NotFound';
 import Detalle from './pages/Detalle';
 import ProductList from './pages/ProductList';
+import Footer from './components/Footer/Footer'
 import { CartProvider } from './context/CartContext';
 import Cart from './pages/Cart';
 
@@ -30,7 +31,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       </CartProvider>   
-        
+      <Footer />
      
      
       
