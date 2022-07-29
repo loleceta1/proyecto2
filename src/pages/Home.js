@@ -1,6 +1,6 @@
 import CardList from '../components/CardList/CardList'
 import { useEffect, useState } from 'react'
-import productos from '../utils/productsMock'
+import products from '../utils/productsMock'
 
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
 const getProducts = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(productos)
+            resolve(products)
         }, 2000);
        
     })
@@ -64,7 +64,7 @@ productsAsync()*/
     return(
    <>    
     <div className = 'general-container'> 
-        <CardList title = {'Nuestros Vehículos'} products ={productos} />
+        <CardList title = {'Nuestros Vehículos'} products ={products} />
     </div>
     {error && <div className = "text-center mt-5"><h1>{error} </h1></div>}
     </> 

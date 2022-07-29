@@ -3,21 +3,19 @@ import './ItemCount.css'
 import {useState} from 'react'
 import CardList from '../CardList/CardList';
 
-const ItemCount = ( {stock, cantidad, actCantidad, setShowButton}) => {
+const ItemCount = ( {stock, cantidad, setCantidad, setShowButton}) => {
   
     
     const addCount = () => {
         if(cantidad < stock ){ 
        
-        actCantidad(cantidad + 1);
+        setCantidad(cantidad + 1);
         }
     }
     const lessCount = () => {
-            actCantidad(cantidad - 1)
+            setCantidad(cantidad - 1)
     }
-    const onAdd = () => {
-        console.log(cantidad)
-    }
+    
     return(
         <>
         <label> Selecciona Cantidad </label>
@@ -36,5 +34,6 @@ const ItemCount = ( {stock, cantidad, actCantidad, setShowButton}) => {
     )
 }
 export default ItemCount;
+
 
 // <Button variant={'contained'} onClick={() => onAdd (count)} className="card-item-button">Agregar al carrito</Button>

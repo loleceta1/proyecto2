@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
  
  //Funcion qu eme devuelve el objeto que match con el useParam
    
-
+    
     
 
 

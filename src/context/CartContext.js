@@ -26,12 +26,27 @@ const CartProvider = ({children}) => {
         setCartListItems([])
     }
 
+    const reduceCart = (itemId) => {
+        const itemToRemove = cartListItems.filter((item) => item.id !== itemId);
+        setCartListItems(itemToRemove);
+    
+        const newCart = cartListItems.filter((product) => product.id !== itemId);
+        setCartListItems(newCart);
+    
+        localStorage.setItem("products", JSON.stringify(newCart));
+      };
+
+      
+
+
     const data = {
         cartListItems,
         addProductToCart,
         totalPrice,
         cleanCartProducts,
-        deleteProduct
+        deleteProduct,
+        reduceCart,
+       
     }
 
     return(

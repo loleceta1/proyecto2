@@ -9,7 +9,7 @@ import db from "../utils/firebaseConfig"
 import { useNavigate } from "react-router-dom"
 
 const Cart = () => {
-    const { cartListItems, totalPrice, cleanCartProducts, deleteProduct } = useContext(CartContext)
+    const { cartListItems, totalPrice, cleanCartProducts, reduceCart, totalCartPrice } = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
     const [formValue, setFormValue] = useState({
         name: '',
@@ -18,34 +18,28 @@ const Cart = () => {
     })
     const [order, setOrder] = useState({
         buyer: {},
-        items: cartListItems.map((item) => {
+        items: cartListItems.map( item => {
             return {
                 id: item.id,
                 title: item.title,
-                price: item.price
+                price: item.price,
             }
         } ),
         total: totalPrice
-       
     })
-
-  
     const [success, setSuccess] = useState()
     const navigate = useNavigate()
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        //console.log("prevent submit: ", formValue)
-
         setOrder({...order, buyer: formValue})
         saveData({...order, buyer: formValue})
     }
 
     //DRY = Dont Repeat Yourself
     const handleChange = (e) => {
-        //console.log("valor del input", e.target.value)
-       setFormValue({...formValue, [e.target.name]: e.target.value})
+        setFormValue({...formValue, [e.target.name]: e.target.value})
     }
 
     const finishOrder = () => {
@@ -54,27 +48,23 @@ const Cart = () => {
 
     const saveData = async (newOrder) => {
         const orderFirebase = collection(db, 'ordenes')
-        const orderDoc = addDoc (orderFirebase, newOrder)
-       
-        
-        console.log("orden generada: ", orderDoc)
+        const orderDoc = await addDoc(orderFirebase, newOrder)
+        console.log("orden generada: ", orderDoc.id)
         setSuccess(orderDoc.id)
         cleanCartProducts()
     }
 
-   
-
     return(
         <Container className='container-general'> 
-        {console.log("orden: ", order)}
+        {console.log("order:", order)}
         <h2>Checkout: </h2>
-               <div className='cart-section'>
+        <div className='cart-section'>
             <div className='col-cart-table__head'>
                 <h2>Producto</h2>
                 <h2>Descripcion</h2>
                 <h2>Precio Unitario</h2>
                 <h2>Cantidad</h2>
-                <h2>Quitar</h2>
+               
             </div>
             {cartListItems.map( (item) => {
                 const {id, title, image, price} = item
@@ -93,29 +83,30 @@ const Cart = () => {
                             <p>1</p>
                         </div>
                         <div className='cart-table__content-price'>
-                            <button className='btn-delete' onClick={() => deleteProduct(item)}>
-                                <Delete />
+                            <button className='btn-delete' >
+                                <Delete onClick={()=> reduceCart(item.id)} />
                             </button>
+                           
                         </div>
                     </div>
                 )
             })}
             <div className='cart-footer'>
-                <Button className='btn-custom'>Continuar comprando</Button>
+                <Button className='btn-custom'>Continuar comprando </Button>
                 <div className='cart-checkout-details'>
                     <div className='cart-checkout__subtotal'>
                         <p>Subtotal</p>
-                        <span>$ {totalPrice}</span>
+                        <span>$ {totalPrice }</span>
                     </div>
                     <div className='cart-checkout__total'>
                         <p>Total</p>
-                        <span>$ {totalPrice}</span>
+                        <span> ${totalPrice}</span>
                     </div>
                     <Button className='btn-custom' onClick={() => setShowModal(true)}>Completar Compra</Button>
                 </div>
             </div>
         </div>
-        <Modal title={success ? 'Muchas Gracias !' : 'Formulario de contacto'} open={showModal} handleClose={() => setShowModal(false)}>
+        <Modal title={success ? 'Compra exitosa' : 'Formulario de contacto'} open={showModal} handleClose={() => setShowModal(false)}>
             {success ? (
                 <div>
                     La order se genero con exito!
@@ -148,27 +139,11 @@ const Cart = () => {
                         variant="outlined" 
                         onChange={handleChange}
                     />
-                    <br>
-                    
-                    </br>
-                    <div>
-                    <br>
-                    </br>
                     <button type="submit">Enviar</button>
-                    </div>
                 </form>
             )}
             
         </Modal>
-        <br>
-        
-        
-        
-        
-        
-        
-        
-        </br>
     </Container>
     )
 }
