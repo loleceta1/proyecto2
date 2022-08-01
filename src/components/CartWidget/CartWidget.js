@@ -3,11 +3,10 @@ import "./CardWidget.css"
 import { useState, useContext } from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+
 import DeleteIcon from '@mui/icons-material/Delete';
 import CartContext from '../../context/CartContext'
 import { Link } from 'react-router-dom';
-import { Button } from '@mui/material';
 
 const CartWidget = () =>  {
     
@@ -52,7 +51,11 @@ const CartWidget = () =>  {
                         return(
                         <div className='item-cart-prod' key={item.id}>
                             <div className='cart-prod__image'>
-                                <img src={`/${item.image}`} alt="prod carrito" />
+                                <img  
+                                style={{ height: "150px" }}
+                                src= {item.image}
+                                alt=""
+                              /> 
                             </div>
                             <div className='cart-prod__info'>
                                 <p>{item.title}</p>

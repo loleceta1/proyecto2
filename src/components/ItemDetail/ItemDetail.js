@@ -16,11 +16,15 @@ const ItemDetail = ({data}) => {
         <Container className='container-general'> 
             <div className='container-detail'>
             <div className='container-detail__img'>
-            <img src = {`/${data.image}`}  />
+            <img src={`/${data.image}`} alt= "" />
             </div>
             <div className='container-detail__info'>
                 <h3 className='info__title'>{data.title}</h3>
                 <p className='info__text'>$ {data.price}</p>
+                
+                <span>Reserva $ {(data.price / 100) * 15}</span>
+                <br>
+                </br>
                 <p className='info__subtitle'>Información del Vehículo</p>
                 <p></p>
                 <p className='info__text'>{}</p>

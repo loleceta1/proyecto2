@@ -15,14 +15,15 @@ const ItemCount = ( {stock, cantidad, setCantidad, setShowButton}) => {
     const lessCount = () => {
             setCantidad(cantidad - 1)
     }
-    
+ 
+  
     return(
         <>
         <label> Selecciona Cantidad </label>
         <div className= 'itemcount-button'>
         <button onClick={addCount}>+</button>
         <p style={{margin: '0 10px', marginTop: '0 10px'}}>{cantidad}</p>
-        <button onClick={lessCount} disabled={cantidad == 0 }>-</button>
+        <button onClick={lessCount} disabled={cantidad === 0 }>-</button>
         
         </div>  
 
@@ -36,4 +37,3 @@ const ItemCount = ( {stock, cantidad, setCantidad, setShowButton}) => {
 export default ItemCount;
 
 
-// <Button variant={'contained'} onClick={() => onAdd (count)} className="card-item-button">Agregar al carrito</Button>

@@ -7,6 +7,9 @@ import TextField from '@mui/material/TextField';
 import { addDoc, collection } from 'firebase/firestore'
 import db from "../utils/firebaseConfig"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+
 
 const Cart = () => {
     const { cartListItems, totalPrice, cleanCartProducts, reduceCart, totalCartPrice } = useContext(CartContext)
@@ -27,6 +30,8 @@ const Cart = () => {
         } ),
         total: totalPrice
     })
+
+   
     const [success, setSuccess] = useState()
     const navigate = useNavigate()
 
@@ -57,7 +62,7 @@ const Cart = () => {
     return(
         <Container className='container-general'> 
         {console.log("order:", order)}
-        <h2>Checkout: </h2>
+      
         <div className='cart-section'>
             <div className='col-cart-table__head'>
                 <h2>Producto</h2>
@@ -67,11 +72,11 @@ const Cart = () => {
                
             </div>
             {cartListItems.map( (item) => {
-                const {id, title, image, price} = item
+                const {id, title, imagen, price} = item
                 return(
                     <div className='cart-table__content' key={id}>
                         <div className='cart-table__content-img'>
-                            <img src={`/${image}`} />
+                            <img src={imagen} alt= "" />
                         </div>
                         <div className='cart-table__content-title'>
                             <p>{title}</p>
@@ -92,7 +97,9 @@ const Cart = () => {
                 )
             })}
             <div className='cart-footer'>
+                <Link style={{ textDecoration: "none" }} to="/">
                 <Button className='btn-custom'>Continuar comprando </Button>
+                </Link>
                 <div className='cart-checkout-details'>
                     <div className='cart-checkout__subtotal'>
                         <p>Subtotal</p>
@@ -100,7 +107,7 @@ const Cart = () => {
                     </div>
                     <div className='cart-checkout__total'>
                         <p>Total</p>
-                        <span> ${totalPrice}</span>
+                        <span> ${totalPrice}  </span>
                     </div>
                     <Button className='btn-custom' onClick={() => setShowModal(true)}>Completar Compra</Button>
                 </div>

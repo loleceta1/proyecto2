@@ -5,6 +5,7 @@ const CartContext = createContext()
 const CartProvider = ({children}) => {
     const [cartListItems, setCartListItems] = useState(JSON.parse(localStorage.getItem('products')) || [])
     const [totalPrice, setTotalPrice] = useState(0)
+    const [totalCartPrice, setTotalCartPrice] = useState(0)
 
     const addProductToCart = (product) => {
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
@@ -15,6 +16,10 @@ const CartProvider = ({children}) => {
             return setCartListItems(cartListItems => [...cartListItems, product])
         }
     }
+    const cartItemsQuantity = () => {
+        return cartListItems.reduce((acc, item) => (acc += item.count), 0);
+      };
+    
 
     const deleteProduct = (product) => {
         // console.log("Producto a eliminar:", product)
@@ -23,6 +28,7 @@ const CartProvider = ({children}) => {
 
     const cleanCartProducts = () => {
         setTotalPrice(0)
+        settotalCartPrice(0)
         setCartListItems([])
     }
 
@@ -46,6 +52,10 @@ const CartProvider = ({children}) => {
         cleanCartProducts,
         deleteProduct,
         reduceCart,
+        cartItemsQuantity,
+        totalCartPrice
+
+
        
     }
 
