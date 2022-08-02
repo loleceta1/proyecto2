@@ -8,11 +8,13 @@ import { addDoc, collection } from 'firebase/firestore'
 import db from "../utils/firebaseConfig"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import DoDisturbOnIcon from "@mui/icons-material/DoDisturbOn";
 
 
 
 const Cart = () => {
-    const { cartListItems, totalPrice, cleanCartProducts, reduceCart, totalCartPrice } = useContext(CartContext)
+    const { cartListItems, totalPrice, cleanCartProducts, reduceCart, totalCartPrice, changeQuantityOfProduct} = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
     const [formValue, setFormValue] = useState({
         name: '',
@@ -72,11 +74,11 @@ const Cart = () => {
                
             </div>
             {cartListItems.map( (item) => {
-                const {id, title, imagen, price} = item
+                const {id, title, image, price, count, stock} = item
                 return(
                     <div className='cart-table__content' key={id}>
                         <div className='cart-table__content-img'>
-                            <img src={imagen} alt= "" />
+                            <img src={`/autos/${image} `} alt= "" />
                         </div>
                         <div className='cart-table__content-title'>
                             <p>{title}</p>
@@ -85,7 +87,21 @@ const Cart = () => {
                             <p>$ {price}</p>
                         </div>
                         <div className='cart-table__content-quantity'>
-                            <p>1</p>
+                        <Button
+                        style={{ color: "#3cfce2" }}
+                        onClick={() => changeQuantityOfProduct(item.id, -1)}
+                        disabled={count === 1}
+                      >
+                        <DoDisturbOnIcon />
+                      </Button>{" "}
+                      {count}{" "}
+                      <Button
+                        style={{ color: "#3cfce2" }}
+                        onClick={() => changeQuantityOfProduct(item.id ++)}
+                        disabled={stock <= count}
+                      >
+                        <AddCircleIcon />
+                      </Button>
                         </div>
                         <div className='cart-table__content-price'>
                             <button className='btn-delete' >

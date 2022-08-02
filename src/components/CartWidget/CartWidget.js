@@ -52,8 +52,8 @@ const CartWidget = () =>  {
                         <div className='item-cart-prod' key={item.id}>
                             <div className='cart-prod__image'>
                                 <img  
-                                style={{ height: "150px" }}
-                                src= {item.image}
+                                style={{ height: "50px" }}
+                                src= {`/autos/${item.image} `}
                                 alt=""
                               /> 
                             </div>

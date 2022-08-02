@@ -5,7 +5,6 @@ const CartContext = createContext()
 const CartProvider = ({children}) => {
     const [cartListItems, setCartListItems] = useState(JSON.parse(localStorage.getItem('products')) || [])
     const [totalPrice, setTotalPrice] = useState(0)
-    const [totalCartPrice, setTotalCartPrice] = useState(0)
 
     const addProductToCart = (product) => {
         let isInCart = cartListItems.find(cartItem => cartItem.id === product.id)
@@ -15,21 +14,6 @@ const CartProvider = ({children}) => {
             localStorage.setItem('products', JSON.stringify([...cartListItems, product]))
             return setCartListItems(cartListItems => [...cartListItems, product])
         }
-    }
-    const cartItemsQuantity = () => {
-        return cartListItems.reduce((acc, item) => (acc += item.count), 0);
-      };
-    
-
-    const deleteProduct = (product) => {
-        // console.log("Producto a eliminar:", product)
-        setCartListItems(cartListItems.filter( (cartProduct) => cartProduct.id !== product.id) )
-    }
-
-    const cleanCartProducts = () => {
-        setTotalPrice(0)
-        settotalCartPrice(0)
-        setCartListItems([])
     }
 
     const reduceCart = (itemId) => {
@@ -42,7 +26,34 @@ const CartProvider = ({children}) => {
         localStorage.setItem("products", JSON.stringify(newCart));
       };
 
-      
+    const deleteProduct = (product) => {
+        // console.log("Producto a eliminar:", product)
+        setCartListItems(cartListItems.filter( (cartProduct) => cartProduct.id !== product.id) )
+    }
+
+    const cleanCartProducts = () => {
+        setTotalPrice(0)
+        setCartListItems([])
+    }
+    const [changeQuantity, setChangeQuantity] = useState(0);
+
+    const changeQuantityOfProduct = (itemId, value) => {
+        const itemToReduceQuantity = cartListItems.find(
+          (item) => item.id === itemId
+        );
+        itemToReduceQuantity.count = itemToReduceQuantity.count + value;
+        return setChangeQuantity(changeQuantity + value);
+      };
+    const cartItemsQuantity = () => {
+        return cartListItems.reduce((acc, item) => (acc += item.count), 0);
+      };
+    
+      const totalCartPrice = () => {
+        return cartListItems.reduce(
+          (acc, item) => acc + item.count * item.price,
+          0
+        );
+      };
 
 
     const data = {
@@ -52,11 +63,10 @@ const CartProvider = ({children}) => {
         cleanCartProducts,
         deleteProduct,
         reduceCart,
+        changeQuantityOfProduct,
         cartItemsQuantity,
-        totalCartPrice
+        totalCartPrice 
 
-
-       
     }
 
     return(
