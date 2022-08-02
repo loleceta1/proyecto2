@@ -24,11 +24,15 @@ const CartProvider = ({children}) => {
         setCartListItems(newCart);
     
         localStorage.setItem("products", JSON.stringify(newCart));
+        setTotalPrice(0);
+        setCartListItems([])
       };
 
     const deleteProduct = (product) => {
         // console.log("Producto a eliminar:", product)
         setCartListItems(cartListItems.filter( (cartProduct) => cartProduct.id !== product.id) )
+        setTotalPrice(0)
+        setCartListItems([])
     }
 
     const cleanCartProducts = () => {

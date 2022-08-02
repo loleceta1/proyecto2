@@ -97,7 +97,7 @@ const Cart = () => {
                       {count}{" "}
                       <Button
                         style={{ color: "#3cfce2" }}
-                        onClick={() => changeQuantityOfProduct(item.id ++)}
+                        onClick={() => changeQuantityOfProduct(item.id, +1)}
                         disabled={stock <= count}
                       >
                         <AddCircleIcon />
