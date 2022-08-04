@@ -89,7 +89,7 @@ const Cart = () => {
                         <div className='cart-table__content-quantity'>
                         <Button
                         style={{ color: "#3cfce2" }}
-                        onClick={() => changeQuantityOfProduct(item.id, -1)}
+                        onClick={() => changeQuantityOfProduct(item.id, +1)}
                         disabled={count === 1}
                       >
                         <DoDisturbOnIcon />
@@ -97,7 +97,7 @@ const Cart = () => {
                       {count}{" "}
                       <Button
                         style={{ color: "#3cfce2" }}
-                        onClick={() => changeQuantityOfProduct(item.id, +1)}
+                        onClick={() => changeQuantityOfProduct(item.id, -1)}
                         disabled={stock <= count}
                       >
                         <AddCircleIcon />

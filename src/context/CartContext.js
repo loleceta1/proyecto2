@@ -17,22 +17,26 @@ const CartProvider = ({children}) => {
     }
 
     const reduceCart = (itemId) => {
-        const itemToRemove = cartListItems.filter((item) => item.id !== itemId);
-        setCartListItems(itemToRemove);
+        let itemToRemove = cartListItems.filter((item) => item.id !== itemId);
+             setCartListItems(itemToRemove);
+             setTotalPrice(totalPrice - itemId.precio)
     
         const newCart = cartListItems.filter((product) => product.id !== itemId);
         setCartListItems(newCart);
     
         localStorage.setItem("products", JSON.stringify(newCart));
-        setTotalPrice(0);
-        setCartListItems([])
+        
+        
       };
+    
+    
 
-    const deleteProduct = (product) => {
+      const deleteProduct = (product) => {
         // console.log("Producto a eliminar:", product)
         setCartListItems(cartListItems.filter( (cartProduct) => cartProduct.id !== product.id) )
         setTotalPrice(0)
         setCartListItems([])
+      
     }
 
     const cleanCartProducts = () => {
@@ -41,6 +45,10 @@ const CartProvider = ({children}) => {
     }
     const [changeQuantity, setChangeQuantity] = useState(0);
 
+    const cartItemsQuantity = () => {
+        return cartListItems.reduce((acc, item) => (acc += item.count), 0);
+      };
+    
     const changeQuantityOfProduct = (itemId, value) => {
         const itemToReduceQuantity = cartListItems.find(
           (item) => item.id === itemId
@@ -48,15 +56,9 @@ const CartProvider = ({children}) => {
         itemToReduceQuantity.count = itemToReduceQuantity.count + value;
         return setChangeQuantity(changeQuantity + value);
       };
-    const cartItemsQuantity = () => {
-        return cartListItems.reduce((acc, item) => (acc += item.count), 0);
-      };
     
       const totalCartPrice = () => {
-        return cartListItems.reduce(
-          (acc, item) => acc + item.count * item.price,
-          0
-        );
+        return cartListItems.reduce((acc, item) => acc + item.count * item.price, 0);
       };
 
 

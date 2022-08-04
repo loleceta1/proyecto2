@@ -3,12 +3,12 @@ import './ItemCount.css'
 import {useState} from 'react'
 import CardList from '../CardList/CardList';
 
-const ItemCount = ( {stock, cantidad, setCantidad, setShowButton}) => {
+const ItemCount = ( {stock, setShowButton}) => {
+    const [cantidad, setCantidad] = useState(0)
   
     
     const addCount = () => {
         if(cantidad < stock ){ 
-       
         setCantidad(cantidad + 1);
         }
     }
