@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const CartWidget = () =>  {
     
-    const { cartListItems, clearCart, deleteProduct } = useContext(CartContext);
+    const { cartListItems, deleteProduct } = useContext(CartContext);
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {

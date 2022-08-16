@@ -10,11 +10,13 @@ const ItemCount = ( {stock, setShowButton}) => {
     const addCount = () => {
         if(cantidad < stock ){ 
         setCantidad(cantidad + 1);
+       
         }
     }
     const lessCount = () => {
             setCantidad(cantidad - 1)
     }
+    
  
   
     return(

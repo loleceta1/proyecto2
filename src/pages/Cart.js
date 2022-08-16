@@ -8,13 +8,13 @@ import { addDoc, collection } from 'firebase/firestore'
 import db from "../utils/firebaseConfig"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import DoDisturbOnIcon from "@mui/icons-material/DoDisturbOn";
+
+
 
 
 
 const Cart = () => {
-    const { cartListItems, totalPrice, cleanCartProducts, reduceCart, totalCartPrice, changeQuantityOfProduct} = useContext(CartContext)
+    const { cartListItems, totalPrice, cleanCartProducts, removeProduct, totalCartPrice} = useContext(CartContext)
     const [showModal, setShowModal] = useState(false)
     const [formValue, setFormValue] = useState({
         name: '',
@@ -74,7 +74,7 @@ const Cart = () => {
                
             </div>
             {cartListItems.map( (item) => {
-                const {id, title, image, price, count, stock} = item
+                const {id, title, image, price, cantidad, stock} = item
                 return(
                     <div className='cart-table__content' key={id}>
                         <div className='cart-table__content-img'>
@@ -87,25 +87,13 @@ const Cart = () => {
                             <p>$ {price}</p>
                         </div>
                         <div className='cart-table__content-quantity'>
-                        <Button
-                        style={{ color: "#3cfce2" }}
-                        onClick={() => changeQuantityOfProduct(item.id, +1)}
-                        disabled={count === 1}
-                      >
-                        <DoDisturbOnIcon />
-                      </Button>{" "}
-                      {count}{" "}
-                      <Button
-                        style={{ color: "#3cfce2" }}
-                        onClick={() => changeQuantityOfProduct(item.id, -1)}
-                        disabled={stock <= count}
-                      >
-                        <AddCircleIcon />
-                      </Button>
+                       <p>{cantidad}</p>
+                
+                     
                         </div>
                         <div className='cart-table__content-price'>
                             <button className='btn-delete' >
-                                <Delete onClick={()=> reduceCart(item.id)} />
+                                <Delete onClick={()=> removeProduct(item.id)} />
                             </button>
                            
                         </div>
@@ -123,7 +111,7 @@ const Cart = () => {
                     </div>
                     <div className='cart-checkout__total'>
                         <p>Total</p>
-                        <span> ${totalPrice}  </span>
+                        <span> $ {totalPrice}  </span>
                     </div>
                     <Button className='btn-custom' onClick={() => setShowModal(true)}>Completar Compra</Button>
                 </div>

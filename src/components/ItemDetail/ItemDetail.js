@@ -39,6 +39,7 @@ const ItemDetail = ({data}) => {
                     actCantidad={setCantidad} 
                     stock={data.stock} 
                     setShowButton={setShowButton}
+                
                    
                  />
                 :
